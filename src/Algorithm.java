@@ -1,4 +1,36 @@
 public class Algorithm {
+
+    public static int[] selectAlgorithm(int[] array) {
+        int swap = 0;
+        int less = 0;
+        for (int i = 0; i < array.length; i++) {
+            less = i;
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j] < array[less]) {
+                    less = j;
+                }
+            }
+            swap = array[i];
+            array[i] = array[less];
+            array[less] = swap;
+        }
+        return array;
+    }
+
+    public static int findLessElement(int[] array) {
+        int less = 0;
+        for (int x = 0; x < array.length; x++) {
+            if (x == 0) {
+                less = array[x];
+            } else if (array[x] < less) {
+                less = array[x];
+            } else {
+                continue;
+            }
+        }
+        return less;
+    }
+
     public static int binarySearch(int[] array, int value) {
         return binarySearchRecursive(array, value, 0, array.length - 1);
     }
