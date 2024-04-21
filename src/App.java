@@ -1,10 +1,21 @@
+import java.io.File;
+import java.io.IOException;
+import java.lang.Thread.State;
+import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        int[] array = { 1, 5, 2, 11, 10, 6, 0 };
-        array = Algorithm.selectAlgorithm(array);
-        for (int each : array) {
-            System.out.println(each);
+        ArrayList<Thread> listThreads = new ArrayList<>();
+        Thread t1 = new Thread(new Runner(1, 1));
+
+        Thread t2 = new Thread(new Runner(2, 2));
+        listThreads.add(t1);
+        listThreads.add(t2);
+        for (Thread each : listThreads) {
+            each.start();
+        }
+        while (listThreads.stream().allMatch(x -> x.getState() == State.RUNNABLE)) {
+            Thread.sleep(1000);
         }
     }
 }

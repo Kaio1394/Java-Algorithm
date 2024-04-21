@@ -1,5 +1,4 @@
 public class Algorithm {
-
     public static int[] selectAlgorithm(int[] array) {
         int swap = 0;
         int less = 0;
@@ -14,6 +13,23 @@ public class Algorithm {
             array[i] = array[less];
             array[less] = swap;
         }
+        return array;
+    }
+
+    public static int[] bubbleAlgorithm(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i + 1; j < array.length - 1; j++) {
+                int swap = 0;
+
+                if (array[i] > array[j]) {
+                    swap = array[i];
+                    array[i] = array[i + 1];
+                    array[j] = swap;
+                }
+            }
+
+        }
+
         return array;
     }
 
