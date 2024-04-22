@@ -13,6 +13,22 @@ public class Runner implements Runnable {
         this.seconds = 1;
     }
 
+    public int getNameThread() {
+        return nameThread;
+    }
+
+    public void setNameThread(int nameThread) {
+        this.nameThread = nameThread;
+    }
+
+    public int getSeconds() {
+        return seconds;
+    }
+
+    public void setSeconds(int seconds) {
+        this.seconds = seconds;
+    }
+
     @Override
     public void run() {
         for (int i = 0; i < 10; i++) {
